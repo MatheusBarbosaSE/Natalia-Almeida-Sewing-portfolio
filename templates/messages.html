@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Testando página de mensagens</h1>
+  <h1>Mensagens Recebidas</h1>
+
+  {% if data %}
+    <table>
+      <thead>
+        <tr>
+          {% for column in header %}
+            <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+          <tr>
+            {% for item in row %}
+              <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Nenhuma mensagem encontrada.</p>
+  {% endif %}
 {% endblock %}

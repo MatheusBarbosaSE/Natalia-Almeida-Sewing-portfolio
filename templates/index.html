@@ -1,10 +1,38 @@
 {% extends "base.html" %}
 
-{% block title %}
-Página Inicial - Natalia Almeida
-{% endblock %}
-
 {% block content %}
-  <h2>Bem-vindo ao site da Natalia Almeida!</h2>
-  <p>Este site está em desenvolvimento. Em breve você verá os serviços e artesanatos disponíveis.</p>
+<div class="banner">
+  <i class="fas fa-needle fa-2x"></i>
+  <h2>Feito à mão com carinho 💛</h2>
+  <p>Peças criativas e consertos personalizados sob medida para você.</p>
+  <a href="#" class="button">Ver Galeria</a>
+
+</div>
+
+<div class="homepage">
+  <div class="column left">
+    <!-- Placeholder for image -->
+    <div class="image-placeholder">
+      <!-- You will add a real image later -->
+      <p>[ Foto ou logo aqui ]</p>
+    </div>
+
+    <!-- Button to gallery (future feature) -->
+    <a href="#" class="button">Ver Galeria</a>
+  </div>
+
+  <div class="column right">
+  <h2>Olá! Sou Natalia Almeida</h2>
+  <p>Trabalho com costura criativa e consertos de roupas. Aqui você encontra peças artesanais como necessaires, carteiras, bolsas, frasqueiras e muito mais.</p>
+
+  <h2><i class="fas fa-scissors"></i> Serviços</h2>
+  <ul>
+    <li><i class="fas fa-tshirt"></i> Consertos de roupas</li>
+    <li><i class="fas fa-shopping-bag"></i> Necessaires e bolsas</li>
+    <li><i class="fas fa-wallet"></i> Carteiras e porta moedas</li>
+    <li><i class="fas fa-suitcase"></i> Frasqueiras</li>
+    <li><i class="fas fa-wine-bottle"></i> Porta garrafa</li>
+    <li><i class="fas fa-box"></i> Pesos de porta</li>
+  </ul>
+</div>
 {% endblock %}
