@@ -6,36 +6,44 @@
   <title>{% block title %}Natalia Almeida - Costura Criativa{% endblock %}</title>
   
   <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"  referrerpolicy="no-referrer" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
 
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
   <header>
     <h1>Natalia Almeida - Costura Criativa</h1>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="{{ url_for('home') }}">Início</a></li>
-      <li><a href="{{ url_for('services') }}">Serviços</a></li>
-      <li><a href="{{ url_for('about') }}">Sobre</a></li>
-      <li><a href="{{ url_for('contact') }}">Contato</a></li>
-    </ul>
+    <nav class="main-nav">
+      <button id="menu-toggle" class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul id="nav-list">
+        <li><a href="{{ url_for('home') }}">Início</a></li>
+        <li><a href="{{ url_for('services') }}">Serviços</a></li>
+        <li><a href="{{ url_for('about') }}">Sobre</a></li>
+        <li><a href="{{ url_for('contact') }}">Contato</a></li>
+        <li><a href="{{ url_for('gallery') }}">Galeria</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
     {% block content %}
-    <!-- Page content goes here -->
+    <!-- Page content -->
     {% endblock %}
   </main>
 
   <footer>
     <p>&copy; 2025 - Todos os direitos reservados.</p>
   </footer>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
 </html>

@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import os
 import csv
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize the Flask app
 app = Flask(__name__)
@@ -24,6 +28,11 @@ def services():
 def about():
     return render_template("about.html")
 
+# Gallery page route
+@app.route("/gallery")
+def gallery():
+    return render_template("gallery.html")
+
 # Contact page route
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -39,12 +48,12 @@ def contact():
         with open("messages.csv", "a", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
 
-            # Write header if the file is empty
+            # Write header if file is empty
             file.seek(0)
             if file.tell() == 0:
                 writer.writerow(["Name", "Email", "Phone", "Message", "DateTime"])
 
-            # Write the form data
+            # Write form data
             writer.writerow([name, email, phone, message, date_time])
 
         # Show success message after submission
@@ -53,14 +62,14 @@ def contact():
 
     return render_template("contact.html")
 
-# Login page route (for protected access)
+# Login route (protected access)
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         password = request.form.get("password")
 
-        # Check if the password is correct
-        if password == "admin123":
+        # Compare with password from .env
+        if password == os.getenv("ADMIN_PASSWORD"):
             session["authenticated"] = True
             return redirect(url_for("messages"))
         else:
@@ -69,10 +78,10 @@ def login():
 
     return render_template("login.html")
 
-# Messages page route (protected)
+# Messages page (protected)
 @app.route("/messages")
 def messages():
-    # Check if the user is authenticated
+    # Check if user is authenticated
     if not session.get("authenticated"):
         return redirect(url_for("login"))
 

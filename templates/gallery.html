@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Galeria | Natalia Almeida{% endblock %}
+
+{% block content %}
+  <h2>Galeria de Trabalhos</h2>
+  <p>Veja abaixo algumas das peças criadas com carinho e criatividade.</p>
+
+  <div class="gallery-grid">
+    <!-- Galeria com imagens reais -->
+    <div class="gallery-item">
+      <img src="{{ url_for('static', filename='images/exemplo1.jpg') }}" alt="Necessaire artesanal">
+    </div>
+    <div class="gallery-item">
+      <img src="{{ url_for('static', filename='images/exemplo2.jpg') }}" alt="Carteira feita à mão">
+    </div>
+    <div class="gallery-item">
+      <img src="{{ url_for('static', filename='images/exemplo3.jpg') }}" alt="Bolsa personalizada">
+    </div>
+    <div class="gallery-item">
+      <img src="{{ url_for('static', filename='images/exemplo4.jpg') }}" alt="Peso de porta decorativo">
+    </div>
+    <!-- Adicione mais imagens conforme necessário -->
+  </div>
+{% endblock %}
